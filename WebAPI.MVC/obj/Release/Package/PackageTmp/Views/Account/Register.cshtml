@@ -1,0 +1,43 @@
+﻿@model WebAPI.MVC.Models.RegisterViewModel
+@{
+    Layout = "~/Views/Shared/_LoginStart.cshtml";
+    ViewBag.Title = "Registrar nova conta";
+}
+<div class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="text-center">@ViewBag.Title</h2>
+                <h4 class="text-center">Por favor, preencha os dados.</h4>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form col-md-12 center-block", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control input-lg", @placeholder = "E-mail" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control input-lg", @placeholder = "Senha" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control input-lg", @placeholder = "Confirmação da senha" })
+                        @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <input type="submit" class="btn btn-primary btn-lg btn-block" value="Registrar" />
+                        </div>
+                    </div>
+                    <span><p>@Html.ActionLink("Agora não, obrigado!", "Login")</p></span>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

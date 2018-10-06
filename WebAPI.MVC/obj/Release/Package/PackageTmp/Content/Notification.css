@@ -1,0 +1,86 @@
+﻿#notificationBtn a 
+{
+    text-decoration: none;
+    color: inherit;
+}
+
+#notificationBtn {
+    position: relative;
+    margin: auto;
+}
+
+notificationBtn li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: absolute;
+    top: 50px;
+    height: 25px;
+    display: block;
+}
+
+#notifications {
+    width: 25px;
+}
+
+#notifications {
+    margin-top: 8%;
+    margin-left: 10%;
+    background: url('images/facebook-icons.png') 0 -152px;
+}
+
+#counter {
+    background-color: #fa3e3e;
+    border-radius: 2px;
+    color: #fff;
+    padding: 1px 3px;
+    font-size: 10px;
+    /*position: absolute;*/
+}
+
+#notification_bar {
+    display: none;
+    width: 250px;
+    height: 300px;
+    overflow-y: scroll;
+    background: #fff;
+    position: absolute;
+    margin-left: -190px;
+    top: 40px;
+    border-radius: 5px;
+}
+
+#arrowUp {
+    position: absolute;
+    top: -8px;
+    right: 40px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid white;
+}
+
+#notification_bar_header {
+    position: absolute;
+    width: 250px;
+    border-bottom: 1px solid #e2e2e2;
+    top: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px 5px 0px 0px;
+    color: #333;
+}
+
+#notification_bar_footer {
+    position: absolute;
+    width: 250px;
+    border-top: 1px solid #e2e2e2;
+    bottom: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 0px 0px 5px 5px;
+    text-align: center;
+    color: #333;
+    background: #e9eaed;
+}

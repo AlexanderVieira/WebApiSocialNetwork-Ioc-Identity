@@ -1,0 +1,39 @@
+﻿CREATE PROCEDURE uspManagerNonQueryFriends
+	@Action int, /*0 = Delete; 1 = Insert; 2 = Update*/
+	@Id uniqueidentifier = null,
+	@RequestedById uniqueidentifier = null,
+	@RequestedToId uniqueidentifier = null,
+	@Status int = null,	
+	@RequestTime DATETIME = NULL	
+
+	AS
+
+	BEGIN
+		IF(@Action = 0)
+			BEGIN
+				DELETE FROM FriendShip
+				WHERE RequestedById IN(@RequestedById, @RequestedToId) AND RequestedToId IN(@RequestedById, @RequestedToId)
+				
+				SELECT @Id AS retorno
+			END
+		ELSE IF(@Action = 1)
+			BEGIN
+				INSERT INTO FriendShip(Id, RequestedById, RequestedToId, Status, RequestTime)
+				VALUES (NEWID(), @RequestedById, @RequestedToId, @Status, @RequestTime)
+
+				SELECT @Id AS retorno
+			END
+		ELSE IF(@Action = 2)
+			BEGIN
+				UPDATE FriendShip 
+				SET RequestedById = @RequestedById, RequestedToId = @RequestedToId, Status = @Status, RequestTime = @RequestTime
+				WHERE Id = @Id
+
+				SELECT @Id retorno
+			END
+		ELSE
+			BEGIN
+				RAISERROR('Ocorreu um erro ação não implementada!', 14, 1)
+			END
+
+	END

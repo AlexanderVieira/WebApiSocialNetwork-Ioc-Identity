@@ -1,0 +1,77 @@
+﻿@model WebAPI.MVC.Models.TransportImageViewModel
+
+@{
+    /**/
+
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DetailsGVM.PhotoUrl)
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.PhotoUrl)*@
+            <img src=@Model.DetailsGVM.PhotoUrl style="max-width:100px;height:auto;" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DetailsGVM.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DetailsGVM.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DetailsGVM.CreationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DetailsGVM.CreationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DetailsGVM.UpdateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DetailsGVM.UpdateDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DetailsGVM.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<div> @Html.Partial("_ImagesCreateParcial")</div>
+
+<div class="row">
+    <div class="col-lg-12">
+
+        <div class="alert alert-warning">You have @ViewBag.PhotoCount Photos </div>
+    </div>
+    @foreach (var item in Model.DetailsGVM.Images)
+    {
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+
+            <a class="thumbnail" href="@item.PhotoUrl">
+                <img class="img-responsive" src="@item.PhotoUrl" style="height: 300px;width:100%;" alt="">
+            </a>
+            <a href="@Url.Action("Delete", "Image",new { id = item.Id })" class="btn btn-default btn-block">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </a>
+
+        </div>
+
+    }
+</div>       

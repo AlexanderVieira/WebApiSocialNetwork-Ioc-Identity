@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection A Cadeia de Conexão usada em web.config pelo aplicativo para acessar o banco de dados." defaultValue="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\WebAPI-Securety.mdf;Initial Catalog=WebAPI-Securety;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Alexander\\source\\repos\\WebApiSocialNetLettucebrain_IoC_Identity\\WebAPI\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="LettuceConnStr-Web.config Connection String" description="LettuceConnStr A Cadeia de Conexão usada em web.config pelo aplicativo para acessar o banco de dados." defaultValue="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=C:\Users\Alexander\source\repos\WebApiSocialNetLettucebrain_IoC_Identity\WebAPI.DAL\DataBase\App_Data\Socialnetwork_db.mdf;Initial Catalog=Socialnetwork_db;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Alexander\\source\\repos\\WebApiSocialNetLettucebrain_IoC_Identity\\WebAPI\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='LettuceConnStr']/@connectionString" />
+  </parameter>
+</parameters>

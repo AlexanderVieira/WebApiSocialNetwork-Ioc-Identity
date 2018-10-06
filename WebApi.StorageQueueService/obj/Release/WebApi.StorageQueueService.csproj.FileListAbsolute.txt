@@ -1,0 +1,12 @@
+C:\Users\Alexander\source\repos\WebApiSocialNetLettucebrain_IoC_Identity\WebApi.StorageQueueService\bin\Release\WebApi.StorageQueueService.dll
+C:\Users\Alexander\source\repos\WebApiSocialNetLettucebrain_IoC_Identity\WebApi.StorageQueueService\bin\Release\WebApi.StorageQueueService.pdb
+C:\Users\Alexander\source\repos\WebApiSocialNetLettucebrain_IoC_Identity\WebApi.StorageQueueService\obj\Release\WebApi.StorageQueueService.csprojResolveAssemblyReference.cache
+C:\Users\Alexander\source\repos\WebApiSocialNetLettucebrain_IoC_Identity\WebApi.StorageQueueService\obj\Release\WebApi.StorageQueueService.csproj.CoreCompileInputs.cache
+C:\Users\Alexander\source\repos\WebApiSocialNetLettucebrain_IoC_Identity\WebApi.StorageQueueService\obj\Release\WebApi.StorageQueueService.dll
+C:\Users\Alexander\source\repos\WebApiSocialNetLettucebrain_IoC_Identity\WebApi.StorageQueueService\obj\Release\WebApi.StorageQueueService.pdb
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\WebApi.StorageQueueService\bin\Release\WebApi.StorageQueueService.dll
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\WebApi.StorageQueueService\bin\Release\WebApi.StorageQueueService.pdb
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\WebApi.StorageQueueService\obj\Release\WebApi.StorageQueueService.csprojResolveAssemblyReference.cache
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\WebApi.StorageQueueService\obj\Release\WebApi.StorageQueueService.csproj.CoreCompileInputs.cache
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\WebApi.StorageQueueService\obj\Release\WebApi.StorageQueueService.dll
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\WebApi.StorageQueueService\obj\Release\WebApi.StorageQueueService.pdb

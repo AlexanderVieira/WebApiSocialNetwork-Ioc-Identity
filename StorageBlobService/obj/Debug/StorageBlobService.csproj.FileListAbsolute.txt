@@ -1,0 +1,15 @@
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\StorageBlobService\bin\Debug\StorageBlobService.dll.config
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\StorageBlobService\bin\Debug\StorageBlobService.dll
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\StorageBlobService\bin\Debug\StorageBlobService.pdb
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\StorageBlobService\bin\Debug\Microsoft.Azure.KeyVault.Core.dll
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\StorageBlobService\bin\Debug\Microsoft.WindowsAzure.Storage.dll
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\StorageBlobService\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\StorageBlobService\bin\Debug\Microsoft.Azure.KeyVault.Core.xml
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\StorageBlobService\bin\Debug\Microsoft.WindowsAzure.Storage.pdb
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\StorageBlobService\bin\Debug\Microsoft.WindowsAzure.Storage.xml
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\StorageBlobService\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\StorageBlobService\obj\Debug\StorageBlobService.csprojResolveAssemblyReference.cache
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\StorageBlobService\obj\Debug\StorageBlobService.csproj.CoreCompileInputs.cache
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\StorageBlobService\obj\Debug\StorageBlobService.csproj.CopyComplete
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\StorageBlobService\obj\Debug\StorageBlobService.dll
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\StorageBlobService\obj\Debug\StorageBlobService.pdb

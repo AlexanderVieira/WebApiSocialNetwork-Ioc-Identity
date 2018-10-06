@@ -1,0 +1,115 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 340px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+    font-size: 18px;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+input, textarea {
+    display: block;
+    height: 100%;
+    padding: 5px 10px;
+    background: none;
+    background-image: none;
+    border: 1px solid #000;
+    color: #000;
+    border-radius: 0;
+    transition: border-color .25s ease, box-shadow .25s ease;
+}
+
+.button {
+    border: 1px solid #fff;
+    outline: none;
+    border-radius: 0;
+    padding: 10px 10px;
+    font-weight: 400;
+    background: #2a3843;
+    color: #fff;
+    -webkit-appearance: none;
+}
+
+    .button:hover, .button:focus {
+        color: #fff !important;
+    }
+
+.form-body {
+    background: rgba(146, 207, 162, 0.9);
+    padding: 20px 40px;
+    max-width: 600px;
+    margin: 30px auto;
+    box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+}
+
+body {
+    background: #fff;
+}
+
+
+.form-group label {
+    color: #000;
+    font-size: 22px;
+}
+
+/*.checkbox label {
+    color: #000;
+    font-size: 22px;
+}*/
+
+.checkbox Editor {
+    color: #fff;
+    /*font-size: 22px;*/
+}
+
+.form-body input, textarea {
+    font-size: 14px;
+}
+
+    textarea:focus, input:focus {
+        outline: none;
+    }
+
+.table-heading {
+    background-color: #2a3843;
+    color: white;
+}
+
+.add-new {
+    background-color: #1ab188;
+}

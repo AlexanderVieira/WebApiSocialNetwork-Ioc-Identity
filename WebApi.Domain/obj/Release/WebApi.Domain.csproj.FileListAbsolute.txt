@@ -1,0 +1,11 @@
+C:\Users\Alexander\source\repos\WebApiSocialNetLettucebrain_IoC_Identity\WebApi.Domain\bin\Release\WebApi.Domain.dll
+C:\Users\Alexander\source\repos\WebApiSocialNetLettucebrain_IoC_Identity\WebApi.Domain\bin\Release\WebApi.Domain.pdb
+C:\Users\Alexander\source\repos\WebApiSocialNetLettucebrain_IoC_Identity\WebApi.Domain\obj\Release\WebApi.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Alexander\source\repos\WebApiSocialNetLettucebrain_IoC_Identity\WebApi.Domain\obj\Release\WebApi.Domain.dll
+C:\Users\Alexander\source\repos\WebApiSocialNetLettucebrain_IoC_Identity\WebApi.Domain\obj\Release\WebApi.Domain.pdb
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\WebApi.Domain\bin\Release\WebApi.Domain.dll
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\WebApi.Domain\bin\Release\WebApi.Domain.pdb
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\WebApi.Domain\obj\Release\WebApi.Domain.csprojResolveAssemblyReference.cache
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\WebApi.Domain\obj\Release\WebApi.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\WebApi.Domain\obj\Release\WebApi.Domain.dll
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\WebApi.Domain\obj\Release\WebApi.Domain.pdb

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Esse arquivo é usado pelo processo de publicação/pacote do seu projeto Web. É possível personalizar o comportamento deste processo
+ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA8i+KEKO040uz7iRvm3QljQAAAAACAAAAAAAQZgAAAAEAACAAAAC63Uf7OXCKV6dIsQyj2Q1pxFevb9SCZFtOUBg/stXkJgAAAAAOgAAAAAIAACAAAAB7GsGAenXkljB0aHzXI28Ob/uH1hHjsv5i3/R3UXJ2Z4AAAABfg+Uv2+QUAHKI9ZFsvARQWyohQLLQt6JptAD9JtmN0iD5eErw0sIaHX1JOVsvJmMBzdNfyC9a+6V5F/DDMhQCGsDqY+wXK5XgIZwgHunEG14RmFcsK+i8jKgSoJKE34kiOIQIX8MpvCNsqZ5O4nrnuqqqGTqFt31Dtf8hwcDgbkAAAAD4EJWylSKsFgK5vRrDya39W6D3UnFITbZnf0aY13A5OubIULxnKRkW0w8WIUxWt2cmjOiMKsDBI3nd+vHtriqU</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <AzureDBConnectionStrings Include="Data Source=tcp:lettucebraindbserver.database.windows.net,1433;Initial Catalog=lettucebrainDB;User ID=alexander;Password=@lerCor943#" />
+    <AzureDBConnectionStrings Include="Data Source=tcp:securitydbserver.database.windows.net,1433;Initial Catalog=SecurityDB;User ID=alexander;Password=@lerCor943#" />
+  </ItemGroup>
+</Project>

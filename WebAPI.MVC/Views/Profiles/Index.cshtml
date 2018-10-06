@@ -1,0 +1,113 @@
+﻿@model IEnumerable<WebAPI.MVC.Models.ProfileViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<div>
+    @using (Html.BeginForm())
+    {
+        <p>Digite o nome</p>
+        <input type="text" name="termo" id="termo" placeholder="Digite a pesquisa" />
+        <button type="submit">Filtrar</button>
+    }
+</div>
+
+@*@if (Session["UserId"] == null)
+    {
+        <p>@Html.ActionLink("Create New", "Create")</p>
+    }*@
+<p>@Html.ActionLink("Create New", "Create")</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PhotoUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Birthday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.PhotoUrl)*@
+                <img src=@item.PhotoUrl style="max-width:50px;height:auto;" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Birthday)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.Country.Flag)*@
+                <img src=@item.Country.Flag style="max-width:50px;height:auto;" />
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.State.Flag)*@
+                <img src=@item.State.Flag style="max-width:50px;height:auto;" />
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Open Profile", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
+                @Html.ActionLink("Back to Home", "Home")
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section scripts{
+    <script>
+        $(function () {
+            var successMessage = '@TempData["SuccessMessage"]'
+            if (successMessage != '')
+                alertify.success(successMessage);
+        });
+
+        function Delete(id) {
+            alertify.confirm('Web Api Lettucebrain Operations','Are You Sure to Delete this Record ?',function () {
+                window.location.href  = '@Url.Action("Delete","Friends")/'+id;
+            }, null);
+
+        }
+
+        function Create(profile) {
+            alertify.confirm('Web Api Lettucebrain Operations', 'Are You Sure to Delete this Record ?', function () {
+                window.location.href = '@Url.Action("Create","Friends")';
+            }, null);
+        }
+
+        function Edit(profile) {
+            alertify.confirm('Web Api Lettucebrain Operations', 'Are You Sure to Delete this Record ?', function () {
+                window.location.href = '@Url.Action("Edit","Friends")';
+            }, null);
+        }
+
+    </script>
+}

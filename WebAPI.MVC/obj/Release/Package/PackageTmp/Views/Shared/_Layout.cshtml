@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/dropzone")
+    @Scripts.Render("~/Scripts/ads.js")
+    @Styles.Render("~/Content/Notification.css")
+    <link href="~/fonts/fontawesome-webfont.ttf" />
+    @*<link href="~/Content/alertifyjs/alertify.min.css" rel="stylesheet" />
+        <link href="~/Content/alertifyjs/themes/default.min.css" rel="stylesheet" />*@
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Lettucebrain", "Home", "Profiles", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+
+                    <li>@Html.ActionLink("Início", "Home", "Profiles")</li>
+
+                    @if (Session["Email"] != null)
+                    {
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cadastros<span class="caret"></span></a>
+                            <ul class="dropdown-menu">                                
+                                <li>@Html.ActionLink("Profile", "Index", "Profiles")</li>
+                                <li>@Html.ActionLink("Marketplace", "Index", "Marketplace")</li>
+                                <li>@Html.ActionLink("Announcement", "Index", "Announcement")</li>
+                                <li>@Html.ActionLink("Gallery", "Index", "Gallery")</li>
+                                <li>@Html.ActionLink("Image", "Index", "Image")</li>
+                                <li>@Html.ActionLink("Group", "Index", "Group")</li>
+                                <li>@Html.ActionLink("Post", "Index", "Post")</li>
+                                <li>@Html.ActionLink("Notification", "Index", "Notification")</li>
+                                <li>@Html.ActionLink("Country", "Index", "Countries")</li>
+                                <li>@Html.ActionLink("State", "Index", "States")</li>
+                                <li>@Html.ActionLink("Address", "Index", "Addresses")</li>
+                            </ul>
+                        </li>
+
+                    }
+
+                    @*<li>@Html.ActionLink("Sobre", "About", "Home")</li>*@
+                    @*<li>@Html.ActionLink("Contato", "Contact", "Home")</li>*@
+                </ul>
+
+                <ul class="nav navbar-nav" id="notificationBtn" name="notificationBtn">
+                    <li id="notifications">
+                        <span id="counter">!</span>
+                        <div id="notification_bar" style="border: 2px solid;background-color:cornflowerblue;text-align:center">
+                            <div id="arrowUp"></div>
+                            <div id="notification_bar_header">
+                                <strong>Notificações</strong>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav" id="searchBtn">
+                    <li>@Html.ActionLink("Search by friends", "Index", "Profiles", routeValues: new { offset = 0, quantity = 5 }, htmlAttributes: null)</li>
+                </ul>
+
+
+                <ul class="nav navbar-nav" id="myAccountBtn">
+                    <li>@Html.ActionLink("My profile", "Details", "Profiles", routeValues: new { userId = Session["UserId"].ToString() }, htmlAttributes: null)</li>
+                </ul>
+
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Meu Aplicativo ASP.NET</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/alertifyjs")
+    @RenderSection("scripts", required: false)
+    @*<script src="~/Scripts/alertify.min.js"></script>*@
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#notifications").click(function () {
+                $("#notification_bar").fadeIn(200);
+                return false;
+            });
+
+            $(document).click(function () {
+                $("#notification_bar").fadeOut("fast");
+            });
+        });
+    </script>
+
+</body>
+</html>

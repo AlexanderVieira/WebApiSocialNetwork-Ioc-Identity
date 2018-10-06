@@ -1,0 +1,149 @@
+﻿@model WebAPI.MVC.Models.ProfileViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PhotoUrl)
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.PhotoUrl)*@
+            <img src=@Model.PhotoUrl style="max-width:100px;height:auto;" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Birthday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Birthday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.Country.Flag)*@
+            <img src=@Model.Country.Flag style="max-width:50px;height:auto;" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.State.Flag)*@
+            <img src=@Model.State.Flag style="max-width:50px;height:auto;" />
+        </dd>
+
+    </dl>
+
+    @{
+        DateTime? now1 = DateTime.Today;
+        int age1 = now1.Value.Year - Model.Birthday.Value.Year;
+        if (now1 < Model.Birthday.Value.AddYears(age1))
+        {
+            age1--;
+        }
+
+        <h5>@age1 anos</h5>
+
+        var userId = Guid.Parse(Session["UserId"].ToString());
+        var profileId = Model.Id;
+
+        if (userId.Equals(profileId))
+        {           
+
+            if (ViewBag.IsFriend != null)
+            {
+                if (ViewBag.IsFriend == true)
+                {
+                    <button type="button" class="btn btn-success">Amigo!</button>
+                    <button id="removeBtn" type="button" onclick="location.href='@Url.Action("RemoveFriendship", "FriendShip")/?requestedToId=@Model.Id'" class="btn btn-info">Remover Amizade</button>
+                }
+                else
+                {
+                    <button type="button" class="btn btn-success">Você não possui amigos!</button>
+					@*<button type="button" onclick="location.href='@Url.Action("CreateFriendship", "FriendShip", new { requestedToId = Model.Id })'" class="btn btn-info">Enviar pedido de amizade</button>*@
+                }
+
+            }
+        }
+        else if (ViewBag.IsFriend != null)
+        {
+            if (ViewBag.IsFriend == true)
+            {
+                    <button type="button" class="btn btn-success">Amigo!</button>
+                    <button id="removeBtn" type="button" onclick="location.href='@Url.Action("RemoveFriendship", "FriendShip")/?requestedToId=@Model.Id'" class="btn btn-info">Remover Amizade</button>
+            }
+            else
+            {
+                    <button type="button" onclick="location.href='@Url.Action("CreateFriendship", "FriendShip", new { requestedToId = Model.Id })'" class="btn btn-info">Enviar pedido de amizade</button>
+            }
+
+        }
+
+        if (ViewBag.Friends != null)
+        {
+            foreach (var friend in ViewBag.Friends)
+            {
+                    <a href="~/profiles/details/@friend.Id"><img src="@friend.PhotoUrl" style="max-width:100px;height:auto;" /></a>
+            }
+        }
+
+        <p>Mora em @Model.State.Name, @Model.Country.Name</p>
+
+        <div class="col-lg-12">
+
+            <div class="alert alert-warning">You have @ViewBag.FriendsCount Friends. </div>
+        </div>
+    }
+
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Back to Home", "Home")
+</p>
+@section Scripts
+{
+    <script>
+        $("#notificationBtn").hide();
+        $("#requestBtn").click(function () {
+            $(this).attr("disabled", "disabled");
+        })
+    </script>
+}

@@ -1,0 +1,12 @@
+C:\Users\Alexander\source\repos\WebApiSocialNetLettucebrain_IoC_Identity\WebAPI.BLL\bin\Release\WebAPI.BLL.dll
+C:\Users\Alexander\source\repos\WebApiSocialNetLettucebrain_IoC_Identity\WebAPI.BLL\bin\Release\WebAPI.BLL.pdb
+C:\Users\Alexander\source\repos\WebApiSocialNetLettucebrain_IoC_Identity\WebAPI.BLL\obj\Release\WebAPI.BLL.csproj.CoreCompileInputs.cache
+C:\Users\Alexander\source\repos\WebApiSocialNetLettucebrain_IoC_Identity\WebAPI.BLL\obj\Release\WebAPI.BLL.dll
+C:\Users\Alexander\source\repos\WebApiSocialNetLettucebrain_IoC_Identity\WebAPI.BLL\obj\Release\WebAPI.BLL.pdb
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\WebAPI.BLL\bin\Release\WebAPI.BLL.dll
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\WebAPI.BLL\bin\Release\WebAPI.BLL.pdb
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\WebAPI.BLL\obj\Release\WebAPI.BLL.csprojResolveAssemblyReference.cache
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\WebAPI.BLL\obj\Release\WebAPI.BLL.csproj.CoreCompileInputs.cache
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\WebAPI.BLL\obj\Release\WebAPI.BLL.dll
+C:\Users\Alexander\Desenvolvedor\workspace-vs-2017\WebApiSocialNetLettucebrain_IoC_Identity\WebAPI.BLL\obj\Release\WebAPI.BLL.pdb
+C:\Users\Alexander\source\repos\WebApiSocialNetLettucebrain_IoC_Identity\WebAPI.BLL\obj\Release\WebAPI.BLL.csprojResolveAssemblyReference.cache

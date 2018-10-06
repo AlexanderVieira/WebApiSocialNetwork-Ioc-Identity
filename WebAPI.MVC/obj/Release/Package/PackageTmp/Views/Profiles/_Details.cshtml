@@ -1,0 +1,147 @@
+﻿@model WebAPI.MVC.Models.ProfileViewModel
+
+<body>
+    @{
+        Layout = "~/Views/Shared/_Layout.cshtml";
+        ViewBag.Title = "Lettucebrain - Perfil";
+        Styles.Render("~/Content/Profile.css");
+    }
+
+    <style>
+        p {
+            word-break: break-all;
+            white-space: normal;
+            word-wrap: break-word;
+        }
+    </style>
+
+    <div class="container-fluid">
+        <div class="row content">
+            <div class="col-sm-3" style="text-align: center">
+                <h2>Profile</h2>
+                <div class="well">
+                    <img src="@Model.PhotoUrl" class="img-circle" style="height:auto; width:110px;" alt="Avatar">
+                    <h4> @Model.FirstName </h4>
+                    @{
+                        DateTime? now1 = DateTime.Today;
+                        int age1 = now1.Value.Year - Model.Birthday.Value.Year;
+                        if (now1 < Model.Birthday.Value.AddYears(age1))
+                        {
+                            age1--;
+                        }
+
+                        <h5>@age1 anos</h5>
+
+                        var userId = Guid.Parse(Session["UserId"].ToString());
+                        var profileId = Model.Id;
+
+                        if (userId.Equals(profileId))
+                        {
+                            <button type="button" class="btn btn-success">Você!</button>
+                        }
+                        else if (ViewBag.IsFriend)
+                        {
+                            <button type="button" class="btn btn-success">Amigos</button>
+                        }
+                        else if (!ViewBag.IsFriend && ViewBag.RequestedFriendship)
+                        {
+                            <button type="button" class="btn btn-secondary">Solicitação de amizade enviada</button>
+                        }
+                        else if (!ViewBag.RequestedFriendship)
+                        {
+                            <button id="requestBtn" type="button" onclick="location.href='@Url.Action("CreateFriendship", "FriendShip")/?requestedToId=@Model.Id'" class="btn btn-info">Enviar pedido de amizade</button>
+                        }
+                        <br />
+
+                        <button id="requestBtn" type="button" onclick="location.href='@Url.Action("acceptfriendship", "FriendShip")/?requestedToId=@Model.Id'" class="btn btn-info">Aceitar pedido de amizade</button>
+
+                        <br />
+                        <p>Mora em @Model.State.Name, @Model.Country.Name</p>
+                    }
+                </div>
+                <input type="hidden" value="@Model.Id" />
+                @*@{
+                        if (Model.Country != null)
+                        {
+                            <img style="width:100px;height:auto" src=@Url.Content("~/Content/images/" + @Model.Country.ToLower() + ".jpg") />
+                        }
+                    }*@
+            </div>
+            <div class="col-sm-6">
+                <h4>Publicações recentes</h4>
+                <hr>
+                @{
+                    if (Model.Posts.Count > 1)
+                    {
+                        var posts = Model.Posts.OrderByDescending(p => p.PostTime);
+
+                        for (int i = 0; i < 2; i++)
+                        {
+                            <h5><span class="glyphicon glyphicon-time"></span> Publicado em @posts.ElementAt(i).PostTime</h5>
+                            <p>
+                                @posts.ElementAt(i).Content @if (userId.Equals(Model.Id))
+                                {
+                                    <a href="@Url.Action("Delete", "Post")?id=@posts.ElementAt(i).AuthorId" class="btn btn-danger btn-sm">
+                                        <span class="glyphicon glyphicon-remove"></span> Excluir publicação
+                                    </a>
+                                }
+                            </p>
+                            <br><br>
+                        }
+                    }
+                    else if (Model.Posts.Count == 1)
+                    {
+                        <h5><span class="glyphicon glyphicon-time"></span> Publicado em @Model.Posts.First().PostTime</h5>
+                        <p>
+                            @Model.Posts.First().Content @if (userId.Equals(Model.Id))
+                            {
+                                <a href="@Url.Action("Delete", "Post")?id=@Model.Posts.First().AuthorId" class="btn btn-danger btn-sm">
+                                    <span class="glyphicon glyphicon-remove"></span> Excluir publicação
+                                </a>
+                            }
+                        </p>
+                        <br><br>
+                    }
+                }
+            </div>
+
+            <div class="col-sm-3" style="text-align: center">
+                <h2>Amigos</h2>
+                <div class="well">
+                    @{
+                        int aux = 0;
+                        foreach (var friend in Model.Friends)
+                        {
+                            if (aux < 3 && friend.Status == WebAPI.MVC.Models.StatusEnumViewModel.Accepted)
+                            {
+                                <a href="@Url.Action("Details", "Profiles")?id=@friend..Id"><img src="@friend.RequestedTo.PhotoUrl" class="img-circle" height="65" width="65" alt="Avatar"></a>
+                                <h4> @friend.RequestedTo.FirstName </h4>
+                                DateTime now = DateTime.Today;
+                                int age = now.Year - friend.RequestedTo.Birthday.Value.Year;
+                                if (now < friend.RequestedTo.Birthday.Value.AddYears(age))
+                                {
+                                    age--;
+                                }
+
+                                <h5>@age anos</h5>
+                                aux++;
+                                continue;
+                            }
+                            break;
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+@section Scripts
+{
+    <script>
+        $("#notificationBtn").hide();
+        $("#requestBtn").click(function () {
+            $(this).attr("disabled", "disabled");
+        })
+    </script>
+}

