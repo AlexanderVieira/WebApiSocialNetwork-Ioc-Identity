@@ -19,7 +19,7 @@ node("master") {
 
 			withSonarQubeEnv('sonarqube-server') {
 
-				sh 'mvn sonar:sonar -Dsonar.projectKey=managerproject-back -Dsonar.host.url=http://127.0.0.1:9000 -Dsonar.login=b1eb6a42b659db14d3adfdfff43df80f9f7c8990'
+				sh 'mvn sonar:sonar -Dsonar.projectKey=lettucebrain -Dsonar.host.url=http://127.0.0.1:9000 -Dsonar.login=fb86a1a0b9a2f3ef6805b8e46668b3ce415562c4'
 
 			}
 
